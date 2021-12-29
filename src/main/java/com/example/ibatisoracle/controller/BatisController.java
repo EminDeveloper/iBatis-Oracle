@@ -20,6 +20,7 @@ public class BatisController {
         us.setBrowserLanguage(request.getBrowserLanguage());
         us.setBrowserUserAgent(request.getBrowserUserAgent());
         us.setSessionId(request.getSessionId());
-        return "OK!";
+        int result = batisService.insertUserSession(us);
+        return "OK! ID:   " + result;
     }
 }

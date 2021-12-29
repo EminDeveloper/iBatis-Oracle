@@ -14,7 +14,7 @@ public class BatisService {
         this.batisMapper = batisMapper;
     }
 
-    public Object insertUserSession(UserSession userSessionRequest) {
+    public int insertUserSession(UserSession userSessionRequest) {
         UserSession userSession = new UserSession();
         userSession.setBrowserLanguage(userSessionRequest.getBrowserLanguage());
         userSession.setBrowserUserAgent(userSessionRequest.getBrowserUserAgent());
