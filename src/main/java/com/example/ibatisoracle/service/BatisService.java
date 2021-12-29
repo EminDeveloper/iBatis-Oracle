@@ -1,8 +1,8 @@
-package com.example.ibatisoracle.utils.service;
+package com.example.ibatisoracle.service;
 
+import com.example.ibatisoracle.model.InsertRequestSession;
 import com.example.ibatisoracle.entity.UserSession;
-import com.example.ibatisoracle.utils.mapper.BatisMapper;
-import lombok.RequiredArgsConstructor;
+import com.example.ibatisoracle.mapper.BatisMapper;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,15 +14,16 @@ public class BatisService {
         this.batisMapper = batisMapper;
     }
 
-    public int insertUserSession(UserSession userSessionRequest) {
+    public String insertUserSession(InsertRequestSession userSessionRequest) {
         UserSession userSession = new UserSession();
         userSession.setBrowserLanguage(userSessionRequest.getBrowserLanguage());
         userSession.setBrowserUserAgent(userSessionRequest.getBrowserUserAgent());
         userSession.setSessionId(userSessionRequest.getSessionId());
         userSession.setStatus("Activett");
-        int result = batisMapper.saveUserSession(userSessionRequest);
 
-        return result;
+        batisMapper.saveUserSession(userSession);
+
+        return "OK";
     }
 
 }
