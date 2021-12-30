@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class UserSession {
-    private String ID;
+    private int id;
     private String browserLanguage;
     private String browserUserAgent;
     private String sessionId;
